@@ -3,7 +3,7 @@ class User < ApplicationRecord
 	has_many :ratings, through: :item
 	has_one :cart
 	
-	validates :username, presence: true
-    validates_uniqueness_of :username, :case_sensitive => false
-    has_secure_password
+	validates :username, :email, presence: true
+    validates_uniqueness_of :username, :email, :case_sensitive => false
+    has_secure_password #automatically takes care of passord validations
 end
