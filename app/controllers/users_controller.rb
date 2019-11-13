@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     #signup
     def create
         @user = User.new(user_params)
-        if @user
+        if @user.save
             #login the user
             session[:user_id] = @user.id
             redirect_to users_path   #users/index
@@ -15,6 +15,11 @@ class UsersController < ApplicationController
             render :new
         end
     end
+
+    def index
+        @user = User.find params[:id] #-> or User.first
+    end
+end
 
     private
 

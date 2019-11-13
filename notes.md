@@ -106,11 +106,11 @@ attribute, that is to say, some attribute other than its foreign keys that can b
 
 [] model object & class method name and URL to see the working feature e.g. Category.most_posts URL: /categories/most_posts)
 
-[] Include signup
+[/] Include signup
 
 [] Include login
 
-[] Include logout
+[/] Include logout
 
 [] Include third party signup/login
 

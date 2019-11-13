@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root 'sessions#home'
   get '/signup' => 'users#new'
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+
   delete '/logout' => 'sessions#destroy' #could be a get request but not best practice because of being able to change the url
+ 
   resources :users
   resources :carts
   resources :items

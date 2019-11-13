@@ -25,6 +25,8 @@ gem 'bcrypt', '~> 3.1.7'
 #gem for flash message
 gem 'rack-flash3'
 
+gem 'pry'
+
 # gem for fake data
 gem 'faker'
 
