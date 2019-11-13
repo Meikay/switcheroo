@@ -27,6 +27,5 @@ class SessionsController < ApplicationController
     end
 end
 
-#Add flash messages
 #write out home method in sessions and figure out why it wont login
 #take a look at requirements
