@@ -1,3 +1,4 @@
+require 'pry'
 class UsersController < ApplicationController
     #loading signup form
     def new
@@ -10,16 +11,17 @@ class UsersController < ApplicationController
         if @user.save
             #login the user
             session[:user_id] = @user.id
-            redirect_to users_path   #users/index
+            redirect_to user_path(@user)   #users/index
         else
             render :new
         end
     end
 
-    def index
-        @user = User.find params[:id] #-> or User.first
+    #finding user's id and account info
+    def show
+        @user = User.find_by_id(params[:id])
+        redirect_to '/' if !@user
     end
-end
 
     private
 
