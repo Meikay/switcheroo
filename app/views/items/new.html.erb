@@ -1,0 +1,13 @@
+<h1>New Item</h1>
+
+<%= form_for(@item) do |f| %>
+
+    <%= f.label :item_name %>
+    <%= f.text_field :item_name %>
+
+    <%= f.label :item_description %>
+    <%= f.text_area :item_description %>
+
+    <%= f.submit %>
+
+<% end %>
