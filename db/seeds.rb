@@ -8,6 +8,11 @@
 
 require 'faker'
 
+# User.destroy_all
+# Cart.destroy_all
+# Item.destroy_all
+# Rating.destroy_all
+
 #User data
 
 15.times do
@@ -17,7 +22,15 @@ require 'faker'
         password: Faker::Internet.password,
         age: Faker::Number.within(range: 18..40)
     )
-end    
+end   
+
+#Cart data
+
+15.times do    
+    Cart.create!(
+        user_id: Faker::Number.between(from: User.first.id, to: User.last.id)
+    )
+end
 
 
 
@@ -26,6 +39,7 @@ end
     Item.create!(
         item_name: Faker::Commerce.product_name,
         item_description: Faker::Hipster.paragraph,
+        user_id: User.first.id,
         cart_id: Faker::Number.between(from: Cart.first.id, to: Cart.last.id) 
     )
 end
@@ -40,9 +54,3 @@ end
      )   
 end
 
-#Cart data
-15.times do    
-    Cart.create!(
-        user_id: Faker::Number.between(from: User.first.id, to: User.last.id)
-    )
-end
