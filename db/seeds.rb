@@ -8,13 +8,12 @@
 
 require 'faker'
 
-# User.destroy_all
-# Cart.destroy_all
-# Item.destroy_all
-# Rating.destroy_all
+User.destroy_all
+Cart.destroy_all
+Item.destroy_all
+Rating.destroy_all
 
 #User data
-
 15.times do
     User.create!(
         username: Faker::Name.unique.name,
@@ -24,27 +23,28 @@ require 'faker'
     )
 end   
 
-#Cart data
+p "#{User.count} users created"
 
+#Cart data
 15.times do    
     Cart.create!(
         user_id: Faker::Number.between(from: User.first.id, to: User.last.id)
     )
 end
 
-
+p "#{Cart.count} carts created"
 
 #Item data
 15.times do 
     Item.create!(
         item_name: Faker::Commerce.product_name,
         item_description: Faker::Hipster.paragraph,
-        user_id: User.first.id,
+        user_id: Faker::Number.between(from: User.first.id, to: User.last.id),
         cart_id: Faker::Number.between(from: Cart.first.id, to: Cart.last.id) 
     )
 end
 
-
+p "#{Item.count} items created"
 #Rating data
 15.times do    
      Rating.create!(
@@ -54,3 +54,4 @@ end
      )   
 end
 
+p "#{Rating.count} ratings created"
