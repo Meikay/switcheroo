@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_234610) do
   create_table "items", force: :cascade do |t|
     t.string "item_name"
     t.text "item_description"
-    t.integer "cart_id", null: false
+    t.integer "cart_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"

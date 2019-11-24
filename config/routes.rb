@@ -7,10 +7,21 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy' #could be a get request but not best practice because of being able to change the url
  
-  resources :users
-  resources :carts
-  resources :items, only:[:index, :new, :create]
+  #omniauth
+  #get "/auth/:provider/callback" => 'sessions#google'
+
+  # resources :users
+  # resources :carts
+  # resources :items 
+  # resources :ratings
+
+  resources :items do
+    resources :ratings
+  end
   resources :ratings
+  resources :users do
+    resources :items, shallow: true
+  end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
