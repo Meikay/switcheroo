@@ -2,3 +2,8 @@
 <br><br>
 <p><%=@item.item_name%></p>
 <p><%=@item.item_description%></p>
+
+<% if @item.user == current_user %>
+<h4><%= link_to "Edit Item", edit_item_path(@item)%></h4>
+<% end %>
+
