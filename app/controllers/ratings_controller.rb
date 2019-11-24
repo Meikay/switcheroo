@@ -4,4 +4,10 @@ class RatingsController < ApplicationController
     def new
         @rating = Rating.new
     end
+
+    def index
+    end
+
+    def create
+    end
 end
