@@ -7,3 +7,12 @@
 <h4><%= link_to "Edit Item", edit_item_path(@item)%></h4>
 <% end %>
 
+<% if @items.blank? %>
+
+    <h2>No Items yet. Add an item <%= link_to "here", new_item_path%></h2>
+
+<% else %>
+  <%= render partial: "items", locals: {items: @items} %>
+
+<% end %>
+
