@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
 
     def index
         @items = Item.all
-        #redirect_to items_path if !@item
     end
 
     def edit

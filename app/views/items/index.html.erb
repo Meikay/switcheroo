@@ -2,8 +2,12 @@
 <br><br>
 
 <% @items.each do |item| %>
+<div>
     <li>
         <%= item.item_name %>
         <%= item.item_description %>
+        <h3>Listed by: <%= item.user.username %></h3>
+        <br><br>
     </li>
+</div>
 <% end %>
