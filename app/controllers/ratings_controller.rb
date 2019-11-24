@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
-    # before_action : redirect_if_not_logged_in
+    before_action : redirect_if_not_logged_in
 
-    # def new
-    #     @rating = Rating.new
-    # end
+    def new
+        @rating = Rating.new
+    end
 end

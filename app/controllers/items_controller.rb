@@ -22,7 +22,12 @@ class ItemsController < ApplicationController
     end
 
     def index
-
+        # if params[:user_id] && @user = User.find_by_id(params[:user_id])
+        #     @items = @user.items.alpha
+        #  else
+        #    @error = "That user doesn't exist" if params[:user_id]
+        #    @items = Item.includes(:rating, :user)
+        #  end
     end
 
     def edit

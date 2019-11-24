@@ -12,7 +12,8 @@
   <body>
 
     <div>
-      <% if logged_in? %>      
+      <% if logged_in? %>  
+        <%= link_to "Home", user_path(current_user)%> |    
         <%= link_to "Add an Item", new_item_path %> |
         <%= link_to "All Items", items_path %> |
         <%= link_to "My Items", item_path(current_user.items.ids) %> |
