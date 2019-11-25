@@ -7,7 +7,12 @@
         <%= item.item_name %>
         <%= item.item_description %>
         <h3>Listed by: <%= item.user.username %></h3>
+        <%= link_to "Add Rating", new_item_rating_path(current_user.items.ids) %>
         <br><br>
     </li>
 </div>
+<% end %>
+
+<% if @items == current_user %>
+<h4><%= link_to "Edit Item", edit_item_path(@items)%></h4>
 <% end %>

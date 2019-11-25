@@ -10,18 +10,14 @@ Rails.application.routes.draw do
   #omniauth
   #get "/auth/:provider/callback" => 'sessions#google'
 
-  # resources :users
-  # resources :carts
-  # resources :items 
-  # resources :ratings
+  resources :ratings
+
+  resources :users do
+    resources :items, :carts 
+  end
 
   resources :items do
     resources :ratings
   end
-  resources :ratings
-  resources :users do
-    resources :items, shallow: true
-  end
-  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
