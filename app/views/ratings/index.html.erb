@@ -1,1 +1,13 @@
 <h1>Ratings page</h1>
+
+<div>
+    <li>
+        <%= @item.item_name %>
+        <%= @item.item_description %>
+        <h3>Listed by: <%= @item.user.username %></h3>
+        <%= render @item.ratings %>
+        <% if @item.user == current_user %>
+        <h4><%= link_to "Edit Item", edit_item_path(@item)%></h4>
+        <% end %>
+    </li>
+</div>

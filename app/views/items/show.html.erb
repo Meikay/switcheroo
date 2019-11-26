@@ -1,7 +1,18 @@
 <h2>My Items</h2>
 <br><br>
 
-<% if @item.user == current_user %>
-<h4><%= link_to "Edit Item", edit_item_path(@item)%></h4>
+<% @items.each do |item| %>
+<div>
+    <li>
+        <%= item.item_name %>
+        <%= item.item_description %>
+        <br><br>
+        <%= button_to "Remove Item", @item, :method => :delete %>
+    </li>
+     <% if item.user == current_user %>
+    <h4><%= link_to "Edit Item", edit_item_path(item.id)%></h4>
+    <% end %>
+    <br><br>
+</div>
 <% end %>
 

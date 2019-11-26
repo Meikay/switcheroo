@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
     end
 
     def index
-        @item = Item.find_by_id(params[:id])
         @items = Item.all
     end
 
@@ -44,7 +43,14 @@ class ItemsController < ApplicationController
 
     def show
         @item = Item.find_by_id(params[:id])
+        @items = Item.all
         redirect_to items_path if !@item
+    end
+
+    def destroy
+        @item = Item.find_by_id(params[:id])
+        @item.destroy
+        redirect_to item_path
     end
 
     private
@@ -55,3 +61,9 @@ class ItemsController < ApplicationController
 
    
 end
+
+
+######## Notes
+
+
+# ITems wont delete
