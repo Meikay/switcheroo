@@ -1,4 +1,8 @@
 <p><%= rating.stars %></p>
 
-<%= link_to "Edit", edit_item_rating_path(rating.item, rating) %>
-<%= link_to "Delete", item_rating_path(rating.item, rating), method: :delete, data: {confirm: "Are you sure?" } %>
+    <% if rating.user_id == current_user.id %>
+
+        <%= link_to "Edit", edit_item_rating_path(rating.item, rating) %>
+        <%= link_to "Delete", item_rating_path(rating.item, rating), method: :delete, data: {confirm: "Are you sure?" } %>
+
+    <% end %>
