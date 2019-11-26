@@ -4,12 +4,16 @@
 <% @items.each do |item| %>
 <div>
     <li>
-        <%= item.item_name %>
+        <%= item.item_name %><br><br>
         <%= item.item_description %>
         <h3>Listed by: <%= item.user.username %></h3>
         <%= link_to "Add Rating", new_item_rating_path(current_user.items.ids) %>
         <%= render item.ratings %>
         <br><br>
+    <% if item.user == current_user %>
+        <h4><%= link_to "Edit Item", edit_item_path(item.id)%></h4>
+        <%= link_to "Delete", item_path(item.id), method: :delete, data: {confirm: "Are you sure?" } %>
+    <% end %>
     </li>
     <br><br>
 </div>
