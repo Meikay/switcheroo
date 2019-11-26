@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-    # before_action :redirect_if_not_logged_in
+    before_action :redirect_if_not_logged_in
     # before_action :redirect_if_not_rating_author  
     before_action :find_item
     before_action :find_rating, only: [:edit, :update, :destroy]
@@ -22,8 +22,7 @@ class RatingsController < ApplicationController
         @rating.item_id = @item.id #connect rating's item_id to item's current val
         @rating.user_id = current_user.id
         if @rating.save
-            #redirect_to items_path(@item)
-            redirect_to item_ratings_path(@item)
+            redirect_to items_path
         else
             render :new
         end
@@ -34,15 +33,12 @@ class RatingsController < ApplicationController
     # end
 
     def edit
-        #@rating = Rating.find(params[:id])
+      #helper method
     end
 
     def update
-        #@rating = Rating.find_by(id: params[:id])
-        #@rating = Rating.find(params[:id])
-        if @rating.update(rating_params)
-            redirect_to items_path(@item)
-            #redirect_to item_ratings_path(@item)
+        if @rating.update(rating_params) 
+            redirect_to items_path
         else 
             render :edit
         end
@@ -65,10 +61,6 @@ class RatingsController < ApplicationController
 
     def find_rating
         @rating = Rating.find(params[:id])
-        if !@rating
-            flash[:message] = "Be the first to rate this item!"
-            redirect_to item_ratings_path
-        end
     end
     
     # def redirect_if_not_rating_author

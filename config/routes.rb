@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   #omniauth
   #get "/auth/:provider/callback" => 'sessions#google'
 
-  resources :ratings
 
   resources :users do
     resources :items, :carts 

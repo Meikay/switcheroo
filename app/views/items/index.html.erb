@@ -7,8 +7,13 @@
         <%= item.item_name %><br><br>
         <%= item.item_description %>
         <h3>Listed by: <%= item.user.username %></h3>
-        <%= link_to "Add Rating", new_item_rating_path(current_user.items.ids) %>
-        <%= render item.ratings %>
+        <%# check to see if current_user already rated an item %>
+        <%# <% if !check_if_user_rated %> 
+       
+            <%= link_to "Add Rating", new_item_rating_path(item) %>
+            <%= render item.ratings %>
+
+        <%# <% end %> 
         <br><br>
     <% if item.user == current_user %>
         <h4><%= link_to "Edit Item", edit_item_path(item.id)%></h4>
