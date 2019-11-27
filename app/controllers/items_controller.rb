@@ -32,23 +32,26 @@ class ItemsController < ApplicationController
       end
     
       def update
-         @item = Item.find_by(id: params[:id])
-         redirect_to items_path if !@item || @item.user != current_user
+        @item = Item.find_by(id: params[:id])
+        redirect_to items_path if !@item || @item.user != current_user
         if @item.update(item_params)
-          redirect_to item_path(@item)
+          redirect_to item_path(@item) #item show page
         else
           render :edit
         end
       end
 
-    def show
-        
-    end
+      def show
+        @item = Item.find_by(id: params[:id])
+      end
+
 
     def destroy
-        # @item = Item.find(params[:id])
-        # @item.destroy
-        # redirect_to items_path(@item)
+         @item = Item.find(params[:id])
+         if @item.present?
+             @item.destroy
+         end
+         redirect_to root_path
     end
 
     private
