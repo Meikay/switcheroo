@@ -108,19 +108,17 @@ attribute, that is to say, some attribute other than its foreign keys that can b
 
 [/] Include signup
 
-[] Include login
+[/] Include login
 
 [/] Include logout
 
 [] Include third party signup/login
 
-[] Include nested resource show or index
-
-[] URL e.g. categories/3/posts
+[/] Include nested resource show or index
+ URL e.g. categories/3/posts
 
 [] Include nested resource "new" form
-
-[] URL e.g. categories/7/posts/new)
+URL e.g. categories/7/posts/new)
 
 [] Include form display of validation errors
 

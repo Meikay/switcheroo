@@ -2,5 +2,6 @@
 <h3><%= @item.item_name %></h3><br><br>
 <p><%= @item.item_description %></p>
 
+<%= link_to "Back", root_path %>
 <%= link_to "Edit", edit_item_path(@item) %>
 <%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
