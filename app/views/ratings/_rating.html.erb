@@ -1,4 +1,5 @@
-<p><%= rating.stars %></p>
+<p><%= rating.stars%></p>
+ <%# <div class="review-rating" data-score="<%= rating.stars %>
 
     <% if rating.user_id == current_user.id %>
 
@@ -6,3 +7,10 @@
         <%= link_to "Delete", item_rating_path(rating.item, rating), method: :delete, data: {confirm: "Are you sure?" } %>
 
     <% end %>
+
+    <%# <script>
+$('#review-form').raty({
+  path: '/assets/',
+  scoreName: 'rating[stars]'
+});
+</script> %>

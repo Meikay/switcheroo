@@ -10,20 +10,27 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-
-    <div>
-      <% if logged_in? %>  
-        <%= link_to "Home", user_path(current_user)%> |   
-        <%= link_to "Switch", items_path %> | 
-        <%= link_to "My Cart", user_carts_path(current_user) %> |
-        <%= link_to "List New Item", new_item_path %> |
-        <%= link_to 'Log out', logout_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign up', signup_path %> |
-        <%= link_to 'Log in', login_path %> 
-      <% end %>
-    </div>
+  <body class=" bg-white-200">
+    <header class="lg:px-16 px-6 bg-white flex flex-wrap items-center lg:py-0 py-2">
+      <div class="flex-1 flex justify-between item-center">
+        <a href="#">
+          <p class="font-serif text-lg text-gray-800">Switcheroo</p>
+        </a>
+       
+        <div class="font-serif text-sm text-gray-800">
+          <% if logged_in? %>  
+            <%= link_to "Home", user_path(current_user)%> |   
+            <%= link_to "Switch", items_path %> | 
+            <%= link_to "My Cart", user_carts_path(current_user) %> |
+            <%= link_to "List New Item", new_item_path %> |
+            <%= link_to 'Log out', logout_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Sign up', signup_path %> |
+            <%= link_to 'Log in', login_path %> 
+          <% end %>
+        </div>
+      </div>
+    </header>
     <div>
       <% if flash[:message] %>
         <% flash[:message] %>

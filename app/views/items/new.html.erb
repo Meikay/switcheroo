@@ -1,4 +1,4 @@
-<h1>New Item</h1>
+<h1>New Item</h1><br><br>
 
 <%= form_for(@item) do |f| %>
 
@@ -8,8 +8,8 @@
     <%= f.label :item_description %>
     <%= f.text_area :item_description %><br><br>
 
-<div class="actions">
-    <%= f.submit %>
-</div>
+    <button class="border-2 border-blue-500 hover:border-red-500 ...">
+        <%= f.submit %>
+    </button>
 
 <% end %>

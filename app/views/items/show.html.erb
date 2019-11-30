@@ -1,7 +1,23 @@
-<h1>Item show page</h1><br><br>
 <h3><%= @item.item_name %></h3><br><br>
 <p><%= @item.item_description %></p>
+<%= render @item.ratings %>
+
+<div>
+    <%= link_to "Add Rating", new_item_rating_path(@item) %>
+</div>
 
 <%= link_to "Back", root_path %>
 <%= link_to "Edit", edit_item_path(@item) %>
 <%= link_to "Delete", item_path(@item), method: :delete, data: { confirm: "Are you sure?" } %>
+
+
+<%# <script>
+$('.review-rating').raty({
+readOnly: true,
+score: function() {
+return $(this).attr('data-score');
+},
+path: '/assets/'
+});
+</script> %>
+
