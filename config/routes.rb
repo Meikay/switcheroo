@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :items, :carts 
   end
 
+  # get '/cart', to: 'user_carts_path#index'
+
   resources :items do
     resources :ratings
   end

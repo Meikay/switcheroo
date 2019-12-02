@@ -9,6 +9,12 @@
                                     <h3>Listed by: <%= item.user.username %></h3>
                                     <%# check to see if current_user already rated an item %>
                                     <%# <% if !check_if_user_rated %> 
+
+                                    <%= form_for(@cart_item) do |f|%>
+                                        <%= f.hidden_field :item_id, :value => item.id %>
+                                        <%= f.number_field :quantity, :value => 1, :min => 1 %>
+                                        <%= f.submit "Add to Cart" %>
+                                    <% end %>
                                 
                                     <button class="border-2 border-blue-500 hover:border-red-500 ...">
                                         <%= link_to "Add Rating", new_item_rating_path(item) %>
@@ -24,6 +30,7 @@
                                     <button class="border-2 border-red-500 hover:border-yellow-500 ...">
                                         <%= link_to "Delete", item_path(item.id), method: :delete, data: {confirm: "Are you sure?" } %>
                                     </button>
+                                    
                                 <% end %>
                             </li><br><br>
                         <% end %>
