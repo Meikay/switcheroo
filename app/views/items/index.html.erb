@@ -10,9 +10,9 @@
                                     <%# check to see if current_user already rated an item %>
                                     <%# <% if !check_if_user_rated %> 
 
-                                    <%= form_for(@cart_item) do |f|%>
+                                    <%= form_for @cart_item do |f|%>
                                         <%= f.hidden_field :item_id, :value => item.id %>
-                                        <%= f.number_field :quantity, :value => 1, :min => 1 %>
+                                        <%= f.number_field :quantity %>
                                         <%= f.submit "Add to Cart" %>
                                     <% end %>
                                 

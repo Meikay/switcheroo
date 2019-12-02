@@ -23,6 +23,8 @@ class ItemsController < ApplicationController
 
     def index
         @items = Item.all
+        #When a user submits the form, a new cart_item will be instantiated inside of current_cart
+        @cart_item = current_cart.cart_items.new
     end
 
     def edit

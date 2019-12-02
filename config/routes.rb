@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :items, :carts 
   end
-
+  resources :cart_items
   # get '/cart', to: 'user_carts_path#index'
 
   resources :items do

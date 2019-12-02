@@ -1,6 +1,8 @@
 module ApplicationHelper
 
-    def current_cart
+
+    #check if there's a cart_id associated with the session and then find that cart
+    def current_cart   
         if session[:cart_id]
           @current_cart = Cart.find(session[:cart_id])
         else
