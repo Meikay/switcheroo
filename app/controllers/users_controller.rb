@@ -11,7 +11,7 @@ class UsersController < ApplicationController
         if @user.save
             #login the user
             session[:user_id] = @user.id
-            Cart.create(:user => @user.id)
+            Cart.create(:user => @user.id) #creates a cart as soon as the user signs up
             redirect_to user_path(@user)   #users/index
         else
             render :new

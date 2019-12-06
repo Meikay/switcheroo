@@ -10,20 +10,6 @@ class CartItemsController < ApplicationController
         session[:cart_id] = @cart.id
         redirect_to user_cart_path(current_user)
       end
-
-    # def create
-    #     @cart = current_cart
-    #     item = Item.find(params[:item_id])
-    #     @cart_item = @cart.cart_items.build(:item => item)
-    #     if @cart_item.save
-    #         redirect_to @cart_item.cart
-    #         flash.now[:success]="Added to Cart"
-    #     else
-    #         render :new
-    #     end
-    # end 
-
-    
   
 
       def destroy
@@ -34,9 +20,6 @@ class CartItemsController < ApplicationController
         redirect_to user_cart_path 
       end
 
-    #   def show
-    #     @cart_items = current_cart.cart_items
-    #   end
 
       private
     
