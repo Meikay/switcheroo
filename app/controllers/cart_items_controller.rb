@@ -17,7 +17,7 @@ class CartItemsController < ApplicationController
         @item = @cart.cart_items.find(params[:id])
         @item.destroy
         @cart.save
-        redirect_to user_cart_path 
+        redirect_to user_cart_path(current_user)
       end
 
 
