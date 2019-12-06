@@ -12,10 +12,14 @@ Rails.application.routes.draw do
 
 
   resources :users do
-    resources :items, :carts 
+    resources :items
+    resource :cart, only: [:show] 
   end
-  resources :cart_items
-  # get '/cart', to: 'user_carts_path#index'
+  
+  # /users/:user_id/cart/:cart_id
+  
+ # get '/cart', to: 'cart_items#show'
+  resources :cart_items, only: [:show, :destroy, :create]   #, path: '/cart/items'
 
   resources :items do
     resources :ratings

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         if @user.save
             #login the user
             session[:user_id] = @user.id
+            Cart.create(:user => @user.id)
             redirect_to user_path(@user)   #users/index
         else
             render :new

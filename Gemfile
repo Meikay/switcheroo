@@ -62,3 +62,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'bundler', '>= 2.0.2'
+
+# gems for oauth
+gem 'omniauth'
+gem 'dotenv-rails'
+gem 'omniauth-google-oauth2'

@@ -21,7 +21,7 @@
           <% if logged_in? %>  
             <%= link_to "Home", user_path(current_user)%> |   
             <%= link_to "Switch", items_path %> | 
-            <%= link_to "My Cart", user_carts_path(current_user) %> |
+            <%= link_to "My Cart", user_cart_path(current_user) %> |
             <%= link_to "List New Item", new_item_path %> |
             <%= link_to 'Log out', logout_path, method: :delete %>
           <% else %>
