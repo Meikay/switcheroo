@@ -7,8 +7,8 @@ class UsersController < ApplicationController
 
     #signup
     def create
-        @user = User.new(user_params)
-        if @user.save
+        @user = User.new(user_params) || auth_hash = request.env["omniauth.auth"]
+        if @user.save || auth_hash.save
             #login the user
             session[:user_id] = @user.id
             Cart.create(:user => @user.id) #creates a cart as soon as the user signs up

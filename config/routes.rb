@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy' #could be a get request but not best practice because of being able to change the url
  
   #omniauth
-  #get "/auth/:provider/callback" => 'sessions#google'
+  get "/auth/:provider/callback" => 'sessions#google'
 
 
   resources :users do
